@@ -58,8 +58,8 @@ function blowCandle() {
     smoke.classList.add("show-smoke");
 
     // Update the message
-    result.textContent = "Happy Birthday! 🎉";
-    instruction.textContent = "Make a wish! 💗";
+    result.textContent = "I Love You <3";
+    instruction.textContent = "Make a wish";
 
     // Stop the music
     birthdayMusic.pause();
