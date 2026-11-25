@@ -103,7 +103,7 @@ button:active {
 
     bottom: 0;
 
-    background: #8bd6f5;
+    background: #e9ff99;
 
     animation: buildCake 0.8s forwards;
 }
@@ -115,7 +115,7 @@ button:active {
     bottom: 75px;
     left: 10px;
 
-    background: #f4a6c1;
+    background: #569dee;
 
     animation: buildCake 0.8s 0.8s forwards;
 }
@@ -127,7 +127,7 @@ button:active {
     bottom: 130px;
     left: 20px;
 
-    background: #8bd6f5;
+    background: #e9ffb4;
 
     animation: buildCake 0.8s 1.6s forwards;
 }
