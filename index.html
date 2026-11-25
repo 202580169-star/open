@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Happy Birthday!</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Background Music -->
+    <audio id="birthdayMusic" loop>
+        <source src="birthday.mp3" type="audio/mpeg">
+    </audio>
+
+    <div class="container">
+
+        <h1>HAPPY BIRTHDAY!</h1>
+
+        <p id="message">
+            A special cake is being prepared for you...
+        </p>
+
+        <!-- Music Button -->
+        <button id="musicButton">
+            🎵 Play Birthday Music
+        </button>
+
+        <!-- Cake Animation -->
+        <div class="cake-area">
+
+            <div class="cake">
+
+                <!-- Candle -->
+                <div class="candle" id="candle">
+
+                    <div class="flame" id="flame"></div>
+
+                    <div class="wick"></div>
+
+                </div>
+
+                <!-- Cake Layers -->
+                <div class="layer layer-bottom"></div>
+
+                <div class="layer layer-middle"></div>
+
+                <div class="layer layer-top"></div>
+
+                <!-- Frosting -->
+                <div class="frosting frosting-bottom"></div>
+
+                <div class="frosting frosting-middle"></div>
+
+                <div class="frosting frosting-top"></div>
+
+            </div>
+
+            <!-- Smoke -->
+            <div class="smoke" id="smoke">〰</div>
+
+        </div>
+
+        <!-- Birthday Message -->
+        <h2 id="result"></h2>
+
+        <p id="instruction">
+            Please wait while your cake is being created...
+        </p>
+
+        <!-- Blow Candle Button -->
+        <button id="blowButton" hidden>
+            💨 Blow Out the Candle
+        </button>
+
+        <!-- Restart Button -->
+        <button id="restartButton" hidden>
+            🎂 Celebrate Again
+        </button>
+
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
