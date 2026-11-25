@@ -1,0 +1,433 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    background: #071b3a;
+    color: white;
+    font-family: monospace;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+.container {
+    text-align: center;
+    width: 100%;
+    padding: 20px;
+}
+
+h1 {
+    font-size: clamp(25px, 5vw, 40px);
+    color: #8bdcff;
+    margin-bottom: 15px;
+
+    text-shadow: 0 0 15px #249de9;
+}
+
+#message {
+    font-size: 17px;
+    margin-bottom: 20px;
+}
+
+button {
+    padding: 12px 22px;
+    border: none;
+    border-radius: 25px;
+
+    background: #249de9;
+    color: white;
+
+    font-family: monospace;
+    font-size: 15px;
+
+    cursor: pointer;
+    margin: 10px;
+
+    transition: 0.2s;
+}
+
+button:hover {
+    background: #087bd0;
+    transform: scale(1.05);
+}
+
+button:active {
+    transform: scale(0.95);
+}
+
+/* CAKE AREA */
+
+.cake-area {
+    position: relative;
+
+    width: 320px;
+    height: 350px;
+
+    margin: 30px auto 0;
+}
+
+.cake {
+    position: absolute;
+
+    width: 240px;
+    height: 240px;
+
+    bottom: 10px;
+    left: 40px;
+}
+
+/* CAKE LAYERS */
+
+.layer {
+    position: absolute;
+
+    left: 0;
+
+    border-radius: 5px;
+
+    opacity: 0;
+    transform: translateY(100px);
+}
+
+.layer-bottom {
+    width: 240px;
+    height: 85px;
+
+    bottom: 0;
+
+    background: #8bd6f5;
+
+    animation: buildCake 0.8s forwards;
+}
+
+.layer-middle {
+    width: 220px;
+    height: 65px;
+
+    bottom: 75px;
+    left: 10px;
+
+    background: #f4a6c1;
+
+    animation: buildCake 0.8s 0.8s forwards;
+}
+
+.layer-top {
+    width: 200px;
+    height: 55px;
+
+    bottom: 130px;
+    left: 20px;
+
+    background: #8bd6f5;
+
+    animation: buildCake 0.8s 1.6s forwards;
+}
+
+/* CAKE BUILDING ANIMATION */
+
+@keyframes buildCake {
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+
+/* FROSTING */
+
+.frosting {
+    position: absolute;
+
+    z-index: 2;
+
+    height: 12px;
+
+    border-radius: 50%;
+
+    background: white;
+
+    opacity: 0;
+}
+
+.frosting-bottom {
+    width: 240px;
+
+    bottom: 78px;
+
+    animation: frostingAppear 0.5s 2.4s forwards;
+}
+
+.frosting-middle {
+    width: 220px;
+
+    left: 10px;
+    bottom: 140px;
+
+    animation: frostingAppear 0.5s 2.7s forwards;
+}
+
+.frosting-top {
+    width: 200px;
+
+    left: 20px;
+    bottom: 182px;
+
+    animation: frostingAppear 0.5s 3s forwards;
+}
+
+@keyframes frostingAppear {
+
+    to {
+        opacity: 1;
+    }
+
+}
+
+/* CANDLE */
+
+.candle {
+    position: absolute;
+
+    width: 25px;
+    height: 65px;
+
+    bottom: 185px;
+    left: 107px;
+
+    background: linear-gradient(
+        90deg,
+        #b76ce8,
+        #f2b7ff,
+        #b76ce8
+    );
+
+    border-radius: 4px;
+
+    opacity: 0;
+    transform: translateY(-50px);
+
+    animation: candleAppear 0.8s 3.5s forwards;
+
+    z-index: 5;
+}
+
+@keyframes candleAppear {
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+
+/* WICK */
+
+.wick {
+    position: absolute;
+
+    top: -8px;
+    left: 11px;
+
+    width: 3px;
+    height: 10px;
+
+    background: #292929;
+}
+
+/* FLAME */
+
+.flame {
+    position: absolute;
+
+    width: 23px;
+    height: 38px;
+
+    top: -42px;
+    left: 1px;
+
+    background: linear-gradient(
+        to top,
+        #ff7300,
+        #ffe45c,
+        #ffffff
+    );
+
+    border-radius: 50% 50% 40% 40%;
+
+    box-shadow: 0 0 20px #ff9d00;
+
+    transform-origin: bottom center;
+
+    animation:
+        lightFlame 0.5s 4.2s backwards,
+        flicker 0.3s 4.7s infinite alternate;
+}
+
+@keyframes lightFlame {
+
+    from {
+        transform: scale(0);
+    }
+
+    to {
+        transform: scale(1);
+    }
+
+}
+
+@keyframes flicker {
+
+    from {
+        transform: rotate(-5deg) scale(1);
+    }
+
+    to {
+        transform: rotate(5deg) scale(1.1);
+    }
+
+}
+
+/* EXTINGUISH FLAME */
+
+.flame.off {
+    animation: extinguish 0.3s forwards;
+}
+
+@keyframes extinguish {
+
+    to {
+        opacity: 0;
+        transform: scale(0);
+    }
+
+}
+
+/* SMOKE */
+
+.smoke {
+    position: absolute;
+
+    left: 147px;
+    top: 35px;
+
+    font-size: 35px;
+
+    color: #c9d8e8;
+
+    opacity: 0;
+}
+
+.smoke.show {
+    animation: smokeRise 2s forwards;
+}
+
+@keyframes smokeRise {
+
+    0% {
+        opacity: 0;
+        transform: translateY(0) scale(0.5);
+    }
+
+    40% {
+        opacity: 0.8;
+    }
+
+    100% {
+        opacity: 0;
+        transform: translateY(-80px) scale(2);
+    }
+
+}
+
+/* CONFETTI */
+
+.confetti {
+    position: absolute;
+
+    width: 10px;
+    height: 15px;
+
+    top: -20px;
+
+    animation: fall 3s linear forwards;
+}
+
+@keyframes fall {
+
+    to {
+        transform: translateY(110vh) rotate(720deg);
+    }
+
+}
+
+/* BLOW BUTTON */
+
+#blowButton {
+    background: #ff8fab;
+
+    padding: 15px 30px;
+
+    border-radius: 30px;
+
+    font-size: 17px;
+}
+
+#blowButton:hover {
+    background: #ff5c8a;
+}
+
+/* BIRTHDAY MESSAGE */
+
+#instruction {
+    margin-top: 15px;
+    font-size: 16px;
+}
+
+#result {
+    color: #ffd166;
+
+    margin-top: 15px;
+
+    font-size: 25px;
+}
+
+/* HIDDEN BUTTONS */
+
+[hidden] {
+    display: none !important;
+}
+
+/* MOBILE RESPONSIVENESS */
+
+@media (max-width: 480px) {
+
+    h1 {
+        font-size: 25px;
+    }
+
+    #message {
+        font-size: 15px;
+    }
+
+    .cake-area {
+        transform: scale(0.85);
+        transform-origin: top center;
+
+        margin-bottom: -50px;
+    }
+
+    button {
+        font-size: 14px;
+    }
+
+}
